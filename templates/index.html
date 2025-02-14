@@ -3,52 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logistic Regression Predictor</title>
+    <title>Sentiment Analysis</title>
 </head>
 <body>
-    <h1>Logistic Regression Predictor</h1>
-    <form action="/predict" method="post">
-        <label for="loan_amnt">Loan Amount:</label>
-        <input type="text" id="loan_amnt" name="loan_amnt" required><br><br>
-        
-        <label for="term">Term:</label>
-        <input type="text" id="term" name="term" required><br><br>
-        
-        <label for="int_rate">Interest Rate:</label>
-        <input type="text" id="int_rate" name="int_rate" required><br><br>
-        
-        <label for="installment">Installment:</label>
-        <input type="text" id="installment" name="installment" required><br><br>
-        
-        <label for="grade">Grade:</label>
-        <input type="text" id="grade" name="grade" required><br><br>
-        
-        <label for="emp_length">Employment Length:</label>
-        <input type="text" id="emp_length" name="emp_length" required><br><br>
-        
-        <label for="home_ownership">Home Ownership:</label>
-        <input type="text" id="home_ownership" name="home_ownership" required><br><br>
-        
-        <label for="annual_inc">Annual Income:</label>
-        <input type="text" id="annual_inc" name="annual_inc" required><br><br>
-        
-        <label for="dti">DTI:</label>
-        <input type="text" id="dti" name="dti" required><br><br>
-        
-        <label for="delinq_2yrs">Delinquency 2 Yrs:</label>
-        <input type="text" id="delinq_2yrs" name="delinq_2yrs" required><br><br>
-        
-        <label for="fico_range_low">FICO Range Low:</label>
-        <input type="text" id="fico_range_low" name="fico_range_low" required><br><br>
-        
-        <label for="fico_range_high">FICO Range High:</label>
-        <input type="text" id="fico_range_high" name="fico_range_high" required><br><br>
-        
-        <input type="submit" value="Predict">
-    </form>
+    <div style="text-align:center;">
+        <h1>Sentiment Analysis Web App</h1>
+        <form action="/predict" method="post">
+            <textarea name="text" rows="4" cols="50" placeholder="Enter text here..." required></textarea><br><br>
+            <button type="submit">Predict Sentiment</button>
+        </form>
 
-    {% if prediction is not none %}
-    <h2>Prediction: {{ prediction }}</h2>
-    {% endif %}
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
 </body>
 </html>
